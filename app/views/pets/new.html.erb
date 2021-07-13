@@ -1,0 +1,47 @@
+<div id="page"><div id="head"><h2>Welcome <%= current_user.first_name %>!</h2> <div class="logout"><a href="/logout" data-method="delete" role="button" class="btn btn-outline-light">Logout</a></div></div>
+
+    <div class="jumbotron">
+    <h3 class="display-8 text-info">Please, help us get to know our newest friend a little better.</h3>
+    <hr class="my-2">
+    
+
+        <form action="/pets/new" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="pet[user_id]" value="<%= current_user.id%>">
+            <% if flash[:errors] %>
+            <div class="form-group">
+                    <div type="hidden" class="alert alert-danger" role="alert">
+                    <% flash[:errors].each do |e| %>
+                        <strong><%= e %></strong><br>
+                        <% end %>
+                    </div>
+            </div>             
+                    <% end %>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Name:</label>
+                <input type="text" class="form-control" name="pet[name]" id="formGroupExampleInput" placeholder="Charley, Chance, Layla">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Type of animal:</label>
+                <input type="text" class="form-control" name="pet[kind]" id="formGroupExampleInput2" placeholder="cat, dog, bird, etc.">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput3">Breed:</label>
+                <input type="text" class="form-control" name="pet[breed]" id="formGroupExampleInput3" placeholder="tabby, golden-retriever, calico">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput4">Color:</label>
+                <input type="text" class="form-control" name="pet[color]" id="formGroupExampleInput4" placeholder="brown, orange, white">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput5">Age:</label>
+                <input type="text" class="form-control" name="pet[age]" id="formGroupExampleInput5" placeholder="(please enter whole numbered years) ex: 1, or 3 ">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput6">Picture:</label>
+                <input type="text" class="form-control" name="pet[image_url]" id="formGroupExampleInput6" placeholder="(please enter url for picture) ex: https://th.bing.com/th/id/OIP.pamiJ95MNPuBPEP">
+            </div>
+            <input type="submit" value="Add pet" class="btn btn-outline-info"> <a href="/pets" role="button" class="btn btn-outline-info">Cancel</a>
+        </form>
+    </div>
+</div>

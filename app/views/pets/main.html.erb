@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            max-height:75px;
+            max-width: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bigbox"><div id="head"><h2>Welcome <%= current_user.first_name %>!</h2> <div class="logout"><a href="/logout" data-method="delete" role="button" class="btn btn-outline-dark">Logout</a></div></div>
+        <div id="littlebox"> <%# line 1 prints the welcome message for user and displays logout button%>
+            <div class="jumbotron">
+            <h2 class="display-10">These pets are looking for a new home:</h2>
+            
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Pic</th>
+                        <th>Name</th>
+                        <th>Kind of Pet</th>
+                        <th>Color</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% @pets.each do |pet| %> <%# loop that is iterating over all of the pets in the db using @pets = Pet.all(see pets_controller)%>
+                    <tr>
+                    <th><img src="<%= pet.image_url%>"></th>
+                    <th><%= pet.name%></th>
+                    <th><%= pet.kind%></th>
+                    <th><%= pet.color%></th>
+                    <% if current_user.id == pet.user.id%> <%# this checks to see if current user is the creator each pet %>
+                    <th><a href="/pets/show/<%= pet.id %>"><i class="bi bi-info-square-fill"></i></a> <a href="#"><i class="bi bi-wrench"></i></a> <a href="#"><i class="bi bi-trash-fill"></i></a></th>
+                    <% else %>
+                        <th><a href="/pets/show/<%= pet.id %>"><i class="bi bi-info-square-fill"></i></a></th>
+                    <% end %>
+                    </tr>
+                    <% end %>
+
+                </tbody>
+                </table>
+                <a href="/pets/new" role="button" class="btn btn-outline-primary btn-sm">Add new pet for adoption</a>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    
+</footer>
+</html>
+
+

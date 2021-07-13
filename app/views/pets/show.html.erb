@@ -1,0 +1,63 @@
+<div id="showpage"><div id="head"><h2>Welcome <%= current_user.first_name %>!</h2> <div class="logout"><a href="/pets" role="button" class="btn btn-outline-warning">Dashboard</a><a href="/logout" data-method="delete" role="button" class="btn btn-outline-dark">Logout</a></div></div>
+
+<div class="jumbotron">
+        
+    <h1 class="display-3">Meet <%= @pet.name %>!</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Type of Animal</th>
+            <th>Breed</th>
+            <th>Color</th>
+            <th>Age</th>
+            <th>Added On|Updated On</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><%= @pet.kind %></td>
+            <td><%= @pet.breed %></td>
+            <td><%= @pet.color %></td>
+            <td><%= @pet.age %></td>
+            <td><%= @pet.created_at %>|<%= @pet.updated_at %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="my-2">
+
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Hi, nice to meet you!</h4>
+            <img src="<%= @pet.image_url %>">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Skills | Hobbies</h4>
+                <% @skills.each do |skill|%>
+            <li class="card-text"><%= skill.talent%></li>
+                <% end %>
+            </div>
+        </div>
+            <% if current_user.id == @pet.user.id%>
+        <div class="card">
+            <div class="card-body">
+            <h4 class="card-title">Add a Skill or Hobby</h4>
+                <form action="/pets/show/skill" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            <input type="hidden" name="pet_id" value="<%= @pet.id%>">
+                        <input type="text" class="form-control" name="talent" id="formGroupExampleInput" placeholder="ex: sleeping, climbing, yarn balls">
+                    </div>
+                        <input type="submit" value="Add" class="btn btn-outline-dark">
+                </form>
+            </div>
+        </div>
+            <% end %>
+    </div>
+
+</div>
+<a class="btn btn-outline-light btn-lg" href="#" role="button">Adopt me!</a>
+</div>

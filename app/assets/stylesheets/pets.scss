@@ -1,0 +1,46 @@
+// Place all the styles related to the Pets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+footer{
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 51%, rgba(0,108,207,1) 100%);
+    height: 150px;
+}
+#bigbox{
+    background: url(https://th.bing.com/th/id/R.63912d35187ddb8d33dd3685790410a1?rik=a0dWuCksPF8iHA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fvrS3IRm.jpg&ehk=x%2fvNeq21deX7RzajrVmD%2bdXLChA3f5MGvsM4ufilgVc%3d&risl=&pid=ImgRaw);
+    background-size: cover;
+    padding: 10px;
+}
+// 
+#head{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 150px 10px;
+    background: url();
+    background-size: cover;
+    color:snow;
+    
+}
+.jumbotron{
+    background-color: rgb(109, 125, 141);
+    opacity: .75;
+}
+#page{
+    background: url(https://jooinn.com/images/siamese-kitten-3.jpg);
+    background-size: cover;
+    padding: 10px;
+}
+img{
+    max-height: 150px;
+    max-width: 150px;
+}
+#showpage{
+    background: rgb(0,108,207);
+    background: radial-gradient(circle, rgba(0,108,207,1) 0%, rgba(0,212,255,1) 85%, rgba(2,0,36,1) 100%);
+    padding-bottom: 75px;
+}
+.card-deck{
+    margin-top: 50px;
+}

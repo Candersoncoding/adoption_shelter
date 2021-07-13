@@ -1,0 +1,44 @@
+<div id="master">
+    <div id="container">
+            <h2>Register</h2>
+        <form action="/new_user" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="form-group">
+                <label for="formGroupExampleInput">First Name:</label>
+                <input type="text" name="user[first_name]" class="form-control" id="formGroupExampleInput" placeholder="enter first name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Last Name:</label>
+                <input type="text" name="user[last_name]" class="form-control" id="formGroupExampleInput2" placeholder="enter last name">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput3">E-mail:</label>
+                <input type="text" name="user[email]" class="form-control" id="formGroupExampleInpu3" placeholder="enter e-mail">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput4">Password:</label>
+                <input type="password" name="user[password]" class="form-control" id="formGroupExampleInput4" placeholder="password">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput5">Password Confirmation:</label>
+                <input type="password" name="user[password_confirm]" class="form-control" id="formGroupExampleInput5" placeholder="confirm password">
+            </div>
+            <input type="submit" value="Register" class="btn btn-info btn-lg">
+        </form>
+    </div>
+    <div id="container">
+            <h2>Login</h2>
+        <form action="/login" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="form-group">
+                <label for="formGroupExampleInput">E-mail:</label>
+                <input type="text" name="user[email]" class="form-control" id="formGroupExampleInput5" placeholder="enter e-mail">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Password:</label>
+                <input type="password" name="user[password]" class="form-control" id="formGroupExampleInput4" placeholder="password">
+            </div>
+            <input type="submit" value="Register" class="btn btn-light btn-lg">
+        </form>
+    </div>
+</div>
