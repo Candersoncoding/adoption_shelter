@@ -4,6 +4,8 @@ class Pet < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :user_likes, through: :likes, source: :user
   has_many :skills, dependent: :destroy
-  validates :name, :kind, :breed, :color, length: {minimum: 2}, presence: true, on: :create
-  validates :age, presence: true, on: :create
+  has_many :chats, dependent: :destroy
+  validates :name, :kind, :breed, :color, presence: true
+  validates :age, presence: true
+  validates :image_url, url: true, presence: true
 end

@@ -2,9 +2,8 @@ class SessionsController < ApplicationController
   def new
   end
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     if @user.valid?
-      @user.save
       redirect_to :back
     else 
       flash[:errors] = @user.errors.full_messages
@@ -15,10 +14,10 @@ class SessionsController < ApplicationController
     
     if @user = User.find_by_email(user_params[:email]).try(:authenticate, user_params[:password])
       session[:user_id] = @user.id
-      redirect_to "/pets"
+      redirect_to '/pets'
     else 
       flash[:login_errors] = ["Oh no, you suck at logging in. Try again. Don't suck this time."]
-      redirect_to '/'
+      redirect_to :back
     end
   end
   def destroy

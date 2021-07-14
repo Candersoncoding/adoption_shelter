@@ -10,7 +10,7 @@
             <th>Breed</th>
             <th>Color</th>
             <th>Age</th>
-            <th>Added On|Updated On</th>
+            <th>Added On | Updated On</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
             <td><%= @pet.breed %></td>
             <td><%= @pet.color %></td>
             <td><%= @pet.age %></td>
-            <td><%= @pet.created_at %>|<%= @pet.updated_at %></td>
+            <td><%= @pet.created_at.strftime("%m/%d/%Y") %> | <%= @pet.updated_at.strftime("%m/%d/%Y") %></td>
             </tr>
         </tbody>
     </table>
@@ -48,6 +48,7 @@
                 <form action="/pets/show/skill" method="post">
                     <div class="form-group">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                            
                             <input type="hidden" name="pet_id" value="<%= @pet.id%>">
                         <input type="text" class="form-control" name="talent" id="formGroupExampleInput" placeholder="ex: sleeping, climbing, yarn balls">
                     </div>
@@ -59,5 +60,5 @@
     </div>
 
 </div>
-<a class="btn btn-outline-light btn-lg" href="#" role="button">Adopt me!</a>
+<a class="btn btn-outline-light btn-lg" href="/chat/<%= @pet.id %>" role="button">Want to take me home?!</a>
 </div>

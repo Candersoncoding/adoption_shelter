@@ -14,5 +14,12 @@ Rails.application.routes.draw do
   post '/pets/new' => 'pets#create'
   get '/pets/show/:id' => 'pets#show'
   post '/pets/show/skill' => 'pets#create_skill'
+  get '/pets/edit/:id' => 'pets#edit_pet'
+  patch '/pets/edit/:id' => 'pets#edit'
+  delete '/pets/destroy/:id' => 'pets#destroy'
+
+  get '/chat/:id' => 'chats#new'
+  post '/chat/:id' => 'chats#create'
+  
   
 end

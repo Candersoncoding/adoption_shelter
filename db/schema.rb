@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210712214437) do
+ActiveRecord::Schema.define(version: 20210713231115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.string   "comment"
+    t.integer  "user_id"
+    t.integer  "pet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "chats", ["pet_id"], name: "index_chats_on_pet_id", using: :btree
+  add_index "chats", ["user_id"], name: "index_chats_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -58,6 +69,8 @@ ActiveRecord::Schema.define(version: 20210712214437) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "chats", "pets"
+  add_foreign_key "chats", "users"
   add_foreign_key "likes", "pets"
   add_foreign_key "likes", "users"
   add_foreign_key "pets", "users"

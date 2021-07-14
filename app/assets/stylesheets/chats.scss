@@ -1,0 +1,15 @@
+// Place all the styles related to the Chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#comment_master{
+    background: url(https://th.bing.com/th/id/R.c3bc8e9a1042b1ee232ca5a899b054f5?rik=D%2b41%2b4OkwKqT5g&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f16700000%2fCute-Kitten-babies-pets-and-animals-16731266-1600-1200.jpg&ehk=Q3aTQ6sEZzUSxMRE%2bJapREJyjsdiTNybz%2fWRwYIRG6I%3d&risl=&pid=ImgRaw);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 10px 650px 10px;
+    margin: auto;
+}
+#head{
+    display: flex;
+    justify-content: space-between;
+}
